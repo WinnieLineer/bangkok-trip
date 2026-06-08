@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>曼谷雙人浪漫蜜月＆高蛋白護眼之旅</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        thai: {
+                            gold: '#C5A880',
+                            emerald: '#0F4C43',
+                            dark: '#12181A',
+                            sand: '#F7F5F0',
+                            warn: '#D97706',
+                            protein: '#10B981'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: #F8FAFC;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for beautiful tabs */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Smooth transitions for tab switching */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.25s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+        /* Glowing alert pulse for eye protection */
+        @keyframes alert-pulse {
+            0%, 100% { border-color: rgba(217, 119, 6, 0.4); }
+            50% { border-color: rgba(217, 119, 6, 1); }
+        }
+        .silk-alert {
+            animation: alert-pulse 2s infinite;
+        }
+        /* Align Day Selector perfectly with the top of the scrollable <main> container */
+        .sticky-day-selector {
+            position: sticky;
+            top: -16px; 
+            z-index: 40;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased max-w-md mx-auto bg-white min-h-screen shadow-xl flex flex-col pb-24 relative">
+
+    <!-- Header (Sticky top) -->
+    <header id="main-header" class="bg-gradient-to-r from-thai-emerald to-slate-900 text-white px-5 pt-6 pb-5 sticky top-0 z-50 rounded-b-[2rem] shadow-lg">
+        <div class="flex justify-between items-center mb-2">
+            <div>
+                <span class="text-xs font-semibold tracking-widest text-thai-gold uppercase">6/14 - 6/20 | 7 Days</span>
+                <h1 class="text-xl font-bold tracking-tight">曼谷浪漫蜜月行</h1>
+            </div>
+            <div class="bg-white/10 px-3 py-1 rounded-full text-xs flex items-center gap-1 backdrop-blur-sm">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-thai-gold"></i>
+                <span class="text-thai-gold font-medium">健康/護眼防線</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-2 mt-3 text-xs md:text-sm text-slate-300">
+            <i data-lucide="sparkles" class="w-4 h-4 text-thai-gold"></i>
+            <span>高蛋白美食 • 術後嚴防風沙 • 7KG輕量行李</span>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 px-4 py-4 overflow-y-auto">
+
+        <!-- Tab 1: Dashboard Overview -->
+        <div id="tab-overview" class="tab-content active space-y-4">
+            
+            <!-- Countdown Banner -->
+            <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/60 rounded-2xl p-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="bg-amber-500/10 p-2.5 rounded-xl">
+                        <i data-lucide="plane-takeoff" class="w-6 h-6 text-amber-600"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-amber-800 font-semibold uppercase tracking-wider">距離出發還有</p>
+                        <h3 id="countdown" class="text-lg font-bold text-amber-900">載入中...</h3>
+                    </div>
+                </div>
+                <span class="text-xs bg-amber-500 text-white font-bold px-2.5 py-1 rounded-lg">VZ567</span>
+            </div>
+
+            <!-- Flight Cards -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                    <i data-lucide="ticket" class="w-5 h-5 text-thai-emerald"></i>
+                    航班飛行資訊
+                </h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- Outbound -->
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 relative overflow-hidden">
+                        <div class="absolute -right-2 -bottom-2 opacity-5">
+                            <i data-lucide="plane" class="w-16 h-16"></i>
+                        </div>
+                        <span class="text-[10px] bg-thai-emerald/10 text-thai-emerald font-bold px-2 py-0.5 rounded-md">去程 VZ567</span>
+                        <p class="text-xs text-slate-500 mt-2">6/14 (週日)</p>
+                        <p class="text-lg font-black text-slate-900 mt-1">15:25 <span class="text-xs font-normal text-slate-400">TPE</span></p>
+                        <p class="text-xs font-semibold text-slate-600">→ 18:25 <span class="text-[10px] font-normal text-slate-400">BKK</span></p>
+                    </div>
+                    <!-- Inbound -->
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 relative overflow-hidden">
+                        <div class="absolute -right-2 -bottom-2 opacity-5">
+                            <i data-lucide="plane" class="w-16 h-16"></i>
+                        </div>
+                        <span class="text-[10px] bg-slate-600 text-white font-bold px-2 py-0.5 rounded-md">回程 VZ568</span>
+                        <p class="text-xs text-slate-500 mt-2">6/20 (週六)</p>
+                        <p class="text-lg font-black text-slate-900 mt-1">09:10 <span class="text-xs font-normal text-slate-400">BKK</span></p>
+                        <p class="text-xs font-semibold text-slate-600">→ 13:45 <span class="text-[10px] font-normal text-slate-400">TPE</span></p>
+                    </div>
+                </div>
+                <!-- Light Luggage Warning -->
+                <div class="flex items-center gap-2.5 bg-red-50 p-2.5 rounded-xl border border-red-100 text-xs text-red-700">
+                    <i data-lucide="info" class="w-4 h-4 shrink-0"></i>
+                    <span><strong>限額提醒：</strong>雙人限手提行李 <strong>7KG x 2 = 14KG</strong>，現場嚴檢無托運！</span>
+                </div>
+            </div>
+
+            <!-- Hotel Info Card -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                    <i data-lucide="hotel" class="w-5 h-5 text-thai-emerald"></i>
+                    入住飯店亮點
+                </h3>
+                
+                <!-- Anantara -->
+                <div class="border-l-4 border-thai-gold pl-3 py-1 space-y-1">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-sm text-slate-800">安納塔拉曼谷河畔度假村</h4>
+                        <span class="text-[10px] bg-thai-gold/20 text-yellow-800 font-bold px-2 py-0.5 rounded">6/14 - 6/17 (3晚)</span>
+                    </div>
+                    <p class="text-xs text-slate-500">聽客房推廣專案 (含每日雙人免費豪華早餐)</p>
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                        <span class="text-[10px] bg-emerald-50 text-emerald-700 font-medium px-2 py-0.5 rounded border border-emerald-100 flex items-center gap-0.5">
+                            <i data-lucide="gift" class="w-3 h-3"></i> 4,000 泰銖 SPA 禮券
+                        </span>
+                        <span class="text-[10px] bg-blue-50 text-blue-700 font-medium px-2 py-0.5 rounded border border-blue-100 flex items-center gap-0.5">
+                            <i data-lucide="ship" class="w-3 h-3"></i> 運河夜景郵輪大餐
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Oakwood -->
+                <div class="border-l-4 border-indigo-500 pl-3 py-1 space-y-1">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-sm text-slate-800">Oakwood Studios Sukhumvit</h4>
+                        <span class="text-[10px] bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded">6/17 - 6/20 (3晚)</span>
+                    </div>
+                    <p class="text-xs text-slate-500">位於 Thong Lo (通羅區)，時尚便捷、無浴缸/泳池負擔</p>
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 font-medium px-2 py-0.5 rounded border border-indigo-100 flex items-center gap-0.5">
+                            <i data-lucide="washing-machine" class="w-3 h-3"></i> 館內 1F 自助洗衣區
+                        </span>
+                        <span class="text-[10px] bg-slate-50 text-slate-700 font-medium px-2 py-0.5 rounded border border-slate-200 flex items-center gap-0.5">
+                            <i data-lucide="map-pin" class="w-3 h-3"></i> 捷運通羅站步行 5 分鐘
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health & Safety Warning Quick Card -->
+            <div class="silk-alert bg-amber-50/50 border border-amber-300 rounded-2xl p-4 shadow-sm space-y-2">
+                <div class="flex items-center gap-2 text-amber-800 font-bold text-sm">
+                    <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600"></i>
+                    <h4>老公 SILK 術後一週保護原則</h4>
+                </div>
+                <p class="text-xs text-amber-700 leading-relaxed">
+                    6/14 時老公的手術剛好滿一週，角膜尚在完全癒合與定型階段。行程中<strong>絕不能碰未過濾的生水、嚴防風沙直吹、嚴避重油煙夜市環境。</strong>
+                </p>
+                <div class="grid grid-cols-2 gap-2 pt-1 text-[10px] font-bold text-amber-900">
+                    <div class="bg-amber-100/60 px-2 py-1.5 rounded-lg flex items-center gap-1">
+                        <i data-lucide="glasses" class="w-3.5 h-3.5 text-amber-700"></i>
+                        <span>乘船/戶外 全程戴墨鏡</span>
+                    </div>
+                    <div class="bg-amber-100/60 px-2 py-1.5 rounded-lg flex items-center gap-1">
+                        <i data-lucide="wind" class="w-3.5 h-3.5 text-amber-700"></i>
+                        <span>高空/郵輪 坐室內避風</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tab 2: Day-by-Day Detailed Itinerary -->
+        <div id="tab-itinerary" class="tab-content space-y-4">
+            
+            <!-- Day Selector (Horizontal Scrolling) - STICKY GAP RESOLVED -->
+            <div id="day-selector" class="sticky-day-selector flex gap-2 overflow-x-auto no-scrollbar py-2 -mx-4 px-4 bg-white z-40 shadow-sm border-b border-slate-100">
+                <button onclick="switchDay(1)" class="day-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-thai-emerald text-white shadow-md shadow-emerald-900/10" id="btn-day-1">6/14 日</button>
+                <button onclick="switchDay(2)" class="day-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 text-slate-600" id="btn-day-2">6/15 一</button>
+                <button onclick="switchDay(3)" class="day-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 text-slate-600" id="btn-day-3">6/16 二</button>
+                <button onclick="switchDay(4)" class="day-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 text-slate-600" id="btn-day-4">6/17 三</button>
+                <button onclick="switchDay(5)" class="day-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 text-slate-600" id="btn-day-5">6/18 四</button>
+                <button onclick="switchDay(6)" class="day-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 text-slate-600" id="btn-day-6">6/19 五</button>
+                <button onclick="switchDay(7)" class="day-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-slate-100 text-slate-600" id="btn-day-7">6/20 六</button>
+            </div>
+
+            <!-- DAY 1 CONTENT -->
+            <div id="day-content-1" class="day-pane space-y-4">
+                <div class="bg-thai-emerald/5 border border-thai-emerald/20 p-3 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-thai-emerald font-bold tracking-widest uppercase">DAY 1</span>
+                        <h4 class="text-sm font-bold text-slate-900">啟程曼谷 • 入住奢華河畔</h4>
+                    </div>
+                    <span class="text-xs bg-thai-emerald text-white font-bold px-2 py-1 rounded">入住 Anantara</span>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 pl-4 ml-2 space-y-6 pt-2">
+                    
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">13:00</span>
+                            <span class="text-[10px] text-slate-400">桃園機場第一航廈</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">抵達機場與辦理手續</h5>
+                        <p class="text-xs text-slate-500 mt-1">抵達 VZ567 櫃台。<strong>務必當場量好手提行李重量（限重 7KG）</strong>，隨身將重物與外套穿戴在身上。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">15:25 - 18:25</span>
+                            <span class="text-[10px] text-slate-400">搭乘 VZ567</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">台北飛往曼谷 (BKK)</h5>
+                        <p class="text-xs text-slate-500 mt-1">航程約 4 小時。空調環境較為乾燥，<strong>請提醒老公定時滴無防腐劑人工淚液</strong>保持眼部濕潤。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">18:25 - 19:30</span>
+                            <span class="text-[10px] text-slate-400">素萬那普機場</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">入境、與專車接駁會合</h5>
+                        <p class="text-xs text-slate-500 mt-1">下機後直接出海關，並前往預約好的飯店專車接駁會合點（通常在 3 樓或 4 號門）。<strong>老公此時起請全程戴上防風護目鏡/墨鏡</strong>，機場大廳與上下車處風沙較多。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">20:30+</span>
+                            <span class="text-[10px] text-slate-400">飯店 Check-in</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">辦理入住安納塔拉曼谷</h5>
+                        <p class="text-xs text-slate-500 mt-1">辦理入住，拿到每日免費雙人早餐券、4,000泰銖 Spa 禮券以及夜景郵輪晚餐券。<strong>【立即行動】直接請櫃台幫您們預約 6/15 或 6/16 傍晚的 Spa 時段。</strong></p>
+                        <!-- Health Tip -->
+                        <div class="mt-2 bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-xs text-emerald-800 flex gap-2">
+                            <i data-lucide="beef" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>高蛋白晚餐推薦：</strong> 於隔壁的 <strong>Riverside Plaza</strong> 室內商場簡單用餐。推薦吃乾淨連鎖店的烤牛肉、雞肉或魚類，避免第一天腸胃不適。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 2 CONTENT -->
+            <div id="day-content-2" class="day-pane hidden space-y-4">
+                <div class="bg-thai-emerald/5 border border-thai-emerald/20 p-3 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-thai-emerald font-bold tracking-widest uppercase">DAY 2</span>
+                        <h4 class="text-sm font-bold text-slate-900">聽客會說明會 • 頂級 Spa • 奢華冷氣艙郵輪餐</h4>
+                    </div>
+                    <span class="text-xs bg-amber-500 text-white font-bold px-2 py-1 rounded">聽客會任務</span>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 pl-4 ml-2 space-y-6 pt-2">
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">07:30 - 09:00</span>
+                            <span class="text-[10px] text-slate-400">度假村河畔餐廳</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">免費雙人豪華早餐</h5>
+                        <p class="text-xs text-slate-500 mt-1">享用飯店極具盛名的河畔早餐。專攻現煎蛋捲、水煮蛋、雞胸肉、新鮮沙拉與芭樂、優格，補足優質高蛋白與高維他命C。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-amber-500 border-2 border-amber-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-amber-700 bg-amber-100 px-2 py-0.5 rounded">09:00 - 11:00</span>
+                            <span class="text-[10px] text-amber-600 font-bold">聽客會任務</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">安納塔拉度假會說明會</h5>
+                        <p class="text-xs text-slate-500 mt-1">參加飯店說明會。保持禮貌與堅定態度，聽完後即可解除任務，開始輕鬆度假！</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">11:30 - 14:00</span>
+                            <span class="text-[10px] text-slate-400">IconSiam (暹羅天地)</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">前進曼谷地標商場</h5>
+                        <p class="text-xs text-slate-500 mt-1">搭乘接駁船至中央碼頭轉接駁。<strong>【護眼注意】乘船河風極大，老公必須戴防風眼鏡防濺水、防風沙。</strong></p>
+                        <!-- Protein Spot -->
+                        <div class="mt-2 bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-xs text-emerald-800 flex gap-2">
+                            <i data-lucide="beef" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>高蛋白午餐：</strong> 前往高樓層 <strong>Getfresh (IconSiam)</strong>。點舒肥雞肉穀物碗、煙燻鮭魚沙拉，避開地下室油煙大的露天市場。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">16:30 - 18:30</span>
+                            <span class="text-[10px] text-slate-400">Anantara Spa</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">奢華 4,000 泰銖 SPA 體驗</h5>
+                        <p class="text-xs text-slate-500 mt-1">使用 4,000 泰銖禮券，享受頂級按摩療程。</p>
+                        <div class="mt-2 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-800 flex gap-2 silk-alert">
+                            <i data-lucide="alert-circle" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>術後注意：</strong> 趴下按摩時，<strong>請務必請理療師避開眼部與額頭周圍</strong>，不可重壓頭部防壓迫角膜瓣。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">19:15 - 21:30</span>
+                            <span class="text-[10px] text-slate-400">飯店專屬遊船</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">郵輪渡河夜景大餐 (Smart Casual)</h5>
+                        <p class="text-xs text-slate-500 mt-1">登上 <strong>Manohra Cruises</strong> 尊榮晚宴。<strong>男生服裝規定：不可穿背心、短褲與涼鞋。</strong></p>
+                        <div class="mt-2 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-800 flex gap-2 silk-alert">
+                            <i data-lucide="shield" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>護眼死守：</strong> <strong>務必預定並坐在「室內冷氣艙」</strong>，避免在露天甲板吹風，防止河風沙與髒水噴濺眼睛！
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 3 CONTENT -->
+            <div id="day-content-3" class="day-pane hidden space-y-4">
+                <div class="bg-thai-emerald/5 border border-thai-emerald/20 p-3 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-thai-emerald font-bold tracking-widest uppercase">DAY 3</span>
+                        <h4 class="text-sm font-bold text-slate-900">臥佛寺巡禮 (無泰服) • MK 頂級養生火鍋</h4>
+                    </div>
+                    <span class="text-xs bg-thai-emerald text-white font-bold px-2 py-1 rounded">歷史與美食</span>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 pl-4 ml-2 space-y-6 pt-2">
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">08:00 - 09:30</span>
+                            <span class="text-[10px] text-slate-400">渡假村河景早餐</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">享用健康早餐</h5>
+                        <p class="text-xs text-slate-500 mt-1">攝取好蛋白質，補足水分與維生素。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">10:00 - 13:00</span>
+                            <span class="text-[10px] text-slate-400">昭披耶河畔碼頭</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">臥佛寺與大佛景觀巡禮</h5>
+                        <p class="text-xs text-slate-500 mt-1">搭乘觀光船直達。<strong>【因術後考量：不作泰服體驗】</strong>，穿著自己透氣舒適的衣服。大殿室內無風沙，可舒適觀賞巨大臥佛。戶外行走時老公需配戴墨鏡。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">13:30 - 15:30</span>
+                            <span class="text-[10px] text-slate-400">室內百貨美食</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">MK Live / Gold 頂級健康火鍋</h5>
+                        <p class="text-xs text-slate-500 mt-1">前往知名連鎖 MK 頂級店，在乾淨、衛生的環境大快朵頤。</p>
+                        <!-- Protein Spot -->
+                        <div class="mt-2 bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-xs text-emerald-800 flex gap-2">
+                            <i data-lucide="star" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>高蛋白攻略：</strong> 選擇清湯或昆布底，瘋狂加點豆腐、雞蛋、鮮蝦、文蛤、牛/豬里肌肉與大量時蔬。不沾重口味辣醬，完美符合高蛋白不水腫原則！
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-thai-emerald w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-thai-emerald bg-thai-emerald/10 px-2 py-0.5 rounded">16:30+</span>
+                            <span class="text-[10px] text-slate-400">浪漫河畔黃昏</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">渡假村池畔與 Asiatique 河濱夜市</h5>
+                        <p class="text-xs text-slate-500 mt-1">傍晚可搭免費接駁船前往河濱碼頭夜市，在乾淨的河畔景觀餐廳簡單用餐，避開路邊攤飛灰油煙，度過悠閒的一夜。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 4 CONTENT -->
+            <div id="day-content-4" class="day-pane hidden space-y-4">
+                <div class="bg-indigo-50 border border-indigo-200 p-3 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-indigo-700 font-bold tracking-widest uppercase">DAY 4</span>
+                        <h4 class="text-sm font-bold text-slate-900">轉移陣地通羅 • 洗大衣服 • 曼谷最潮新地標</h4>
+                    </div>
+                    <span class="text-xs bg-indigo-600 text-white font-bold px-2 py-1 rounded">專車免費接送</span>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 pl-4 ml-2 space-y-6 pt-2">
+                    
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">11:00 - 12:00</span>
+                            <span class="text-[10px] text-slate-400">飯店 Check-out</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">退房與移動至通羅區 (Thong Lo)</h5>
+                        <p class="text-xs text-slate-500 mt-1">辦理退房，<strong>直接使用聽客房專案內含的免費單程專車接送服務</strong>，搭乘專用接駁車舒適直達 <strong>Oakwood Studios Sukhumvit Bangkok</strong>！省去自行叫車與提行李的疲累，全程車窗緊閉吹冷氣，完美保護老公術後的眼睛免於風沙侵擾。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">12:30 - 14:00</span>
+                            <span class="text-[10px] text-slate-400">通羅質感美食</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">Pimp My Salad 高蛋白能量碗</h5>
+                        <p class="text-xs text-slate-500 mt-1">步行 5 分鐘抵達這家主打健康的時髦餐廳。您可以百分百客製化自己的高蛋白質午餐：烤厚切牛排 + 舒肥嫩雞胸 + 水煮蛋，乾淨美味！</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-indigo-600 border-2 border-indigo-700 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-100 bg-indigo-600 px-2 py-0.5 rounded">14:00 - 15:30</span>
+                            <span class="text-[10px] text-indigo-600 font-bold">洗大衣服任務</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">辦理入住與 1F 自助洗衣任務啟動</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            入住新飯店。將前四天累積的衣物帶到 1 樓吸菸區旁的 <strong>Self-service laundry area</strong>。先去櫃檯買代幣 (約 10 泰銖/個)。丟進洗衣機後即可回房休息，1 小時後再來換到烘乾機！輕鬆無負擔。
+                        </p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">16:30 - 21:00</span>
+                            <span class="text-[10px] text-slate-400">BTS 空橋直通</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">全曼谷最潮商場：EMSPHERE</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            從 BTS Thong Lo 站坐 1 站到 Phrom Phong 站，空橋直接進入商場（免日曬吹風）。逛全泰唯一市區 IKEA 與無數設計師潮牌。
+                        </p>
+                        <!-- Protein Spot -->
+                        <div class="mt-2 bg-emerald-50 border border-emerald-200 rounded-xl p-2.5 text-xs text-emerald-800 flex gap-2">
+                            <i data-lucide="beef" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>高蛋白晚餐：</strong> 於乾淨時尚的美食區，享用 <strong>Tongue Thai</strong> 精緻泰式烤肉或現包鮮蝦泰式生春捲，完全杜絕髒空氣。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 5 CONTENT -->
+            <div id="day-content-5" class="day-pane hidden space-y-4">
+                <div class="bg-indigo-50 border border-indigo-200 p-3 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-indigo-700 font-bold tracking-widest uppercase">DAY 5</span>
+                        <h4 class="text-sm font-bold text-slate-900">文青 The Commons • 百貨採購 • 高端精緻泰菜</h4>
+                    </div>
+                    <span class="text-xs bg-indigo-600 text-white font-bold px-2 py-1 rounded">質感曼谷</span>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 pl-4 ml-2 space-y-6 pt-2">
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">10:00 - 12:00</span>
+                            <span class="text-[10px] text-slate-400">通羅文青地標</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">The Commons Thonglor 慢活早午餐</h5>
+                        <p class="text-xs text-slate-500 mt-1">清水模半露天設計空間。在一樓 <strong>Roots</strong> 來杯無糖美式咖啡/拿鐵，搭配高蛋白酸麵包酪梨蛋，享受通羅文青的一天。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">13:00 - 15:30</span>
+                            <span class="text-[10px] text-slate-400">BTS 輕旅行</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">暹羅商圈 (CentralwOrld) 室內吹冷氣</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            曼谷最熱時段躲入全亞洲最大的冷氣購物中心。在超市買一盒新鮮藍莓與泰國巨無霸芭樂，大補抗氧化維生素 C。
+                        </p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">16:00 - 18:00</span>
+                            <span class="text-[10px] text-slate-400">高端舒壓</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">Let's Relax Spa (Thonglo 分店)</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            就在通羅區！預約 2 小時放鬆腳底或肩頸按摩。
+                        </p>
+                        <div class="mt-2 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-800 flex gap-2 silk-alert">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>護眼叮嚀：</strong> 再次叮囑按摩師：<strong>「No massage around forehead and eyes!」</strong> 確保眼睛安全。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">18:30 - 21:00</span>
+                            <span class="text-[10px] text-slate-400">精緻泰式美饌</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">Nara Thai Cuisine 豪華晚餐</h5>
+                        <p class="text-xs text-slate-500 mt-1">在乾淨高雅的室內商場享用。點一條清蒸檸檬鱸魚（優質白肉蛋白質）、嫩烤松阪豬肉。好吃不踩雷，且不用去擁擠多塵的傳統夜市吹風。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 6 CONTENT -->
+            <div id="day-content-6" class="day-pane hidden space-y-4">
+                <div class="bg-indigo-50 border border-indigo-200 p-3 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-indigo-700 font-bold tracking-widest uppercase">DAY 6</span>
+                        <h4 class="text-sm font-bold text-slate-900">米其林米粉湯 • 伴手禮最後衝刺 • 奢華高空吧</h4>
+                    </div>
+                    <span class="text-xs bg-indigo-600 text-white font-bold px-2 py-1 rounded">蜜月最終章</span>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 pl-4 ml-2 space-y-6 pt-2">
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">09:30 - 11:30</span>
+                            <span class="text-[10px] text-slate-400">米其林推薦</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">榮泰米粉湯 (Rung Reung)</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            步行或打車前去。點大碗「乾綜合豬肉粉」，裡面盛滿碎豬瘦肉、切片瘦豬肉與彈性十足的手工魚丸，不油不甜、蛋白質含量高！
+                        </p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">12:00 - 15:00</span>
+                            <span class="text-[10px] text-slate-400">大賣場掃貨</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">Big C Ekkamai 伴手禮採購</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            就在通羅隔壁站。因<strong>只有 7KG 手提行李</strong>，請開啟精準無痛模式：狂買超輕量大海苔、無糖手標泰式紅茶包（不買重罐頭和液體）。
+                        </p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">15:30 - 17:00</span>
+                            <span class="text-[10px] text-slate-400">打包行李</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">回飯店進行行李秤重防爆</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            將戰利品打包。利用飯店大廳行李秤（或自己帶的隨身行李秤），控制在兩件（一大一小）內不超重。
+                        </p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">18:00 - 20:30</span>
+                            <span class="text-[10px] text-slate-400">浪漫解禁海鮮餐</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">Savoey / 建興酒家 狂吃海鮮大餐</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            健檢是 6/25，今晚狂吃解禁！大點蒜蓉胡椒泰國大頭蝦、蟹肉炒蛋、酸辣清蒸魚，盡情享受高蛋白的究極海鮮饗宴。
+                        </p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">21:00 - 23:00</span>
+                            <span class="text-[10px] text-slate-400">通羅萬豪頂樓</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">Octave Rooftop Lounge & Bar 微醺之夜</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            步行或嘟嘟車直達，享用酒精飲料微醺一下。
+                        </p>
+                        <div class="mt-2 bg-amber-50 border border-amber-200 rounded-xl p-2.5 text-xs text-amber-800 flex gap-2 silk-alert">
+                            <i data-lucide="shield" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong>高空護眼提醒：</strong> 頂樓風力非常強。<strong>請主動要求坐在設有玻璃帷幕、避風效果極好的沙發區</strong>，並讓老公配戴太陽眼鏡防風吹。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 7 CONTENT -->
+            <div id="day-content-7" class="day-pane hidden space-y-4">
+                <div class="bg-indigo-50 border border-indigo-200 p-3 rounded-2xl flex justify-between items-center">
+                    <div>
+                        <span class="text-[10px] text-indigo-700 font-bold tracking-widest uppercase">DAY 7</span>
+                        <h4 class="text-sm font-bold text-slate-900">清晨直奔機場 • 安全返台</h4>
+                    </div>
+                    <span class="text-xs bg-slate-600 text-white font-bold px-2 py-1 rounded">歸途</span>
+                </div>
+
+                <div class="relative border-l-2 border-slate-200 pl-4 ml-2 space-y-6 pt-2">
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">05:45 - 06:00</span>
+                            <span class="text-[10px] text-slate-400">大廳 Check-out</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">退房辦理與叫車</h5>
+                        <p class="text-xs text-slate-500 mt-1">完成退房，提早於 Grab / Bolt 叫車。清晨路上不塞車，直奔 BKK 機場。</p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">06:45 - 08:30</span>
+                            <span class="text-[10px] text-slate-400">素萬那普機場</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">越捷櫃台辦理與安檢過海關</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            抵達機場。辦理登機（若未超重 7KG 便可迅速通關）。過海關後，可於免稅店簡單買點乾淨無塵的低糖高蛋白小點心。
+                        </p>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="relative">
+                        <div class="absolute -left-[21px] top-1 bg-white border-2 border-indigo-600 w-3.5 h-3.5 rounded-full"></div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-black text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">09:10 - 13:45</span>
+                            <span class="text-[10px] text-slate-400">VZ568 航班</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-slate-900 mt-1">曼谷飛往台北 (TPE)</h5>
+                        <p class="text-xs text-slate-500 mt-1">
+                            起飛返台！機艙保持戴上墨鏡並定時補充淚液，安全降落桃園第一航廈，為美好的浪漫健康蜜月之旅畫上完美句點！
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tab 3: Interactive Packing List -->
+        <div id="tab-packing" class="tab-content space-y-4">
+            
+            <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-2xl">
+                <h4 class="font-bold text-indigo-900 text-sm flex items-center gap-2">
+                    <i data-lucide="backpack" class="w-5 h-5 text-indigo-600"></i>
+                    7KG 限重挑戰打包計策
+                </h4>
+                <p class="text-xs text-indigo-800 leading-relaxed mt-1">
+                    回國前（6/17）可以使用 Oakwood 的自助洗烘衣服，因此<strong>衣物只需要帶 3-4 套即可！</strong> 穿最重的那套長褲與外套登機，行李箱就能輕輕鬆鬆保持在 5KG 左右。
+                </p>
+            </div>
+
+            <!-- List Sections -->
+            <div class="space-y-4">
+                
+                <!-- Section: Essential & Medical (SILK ONLY) -->
+                <div class="bg-white border border-amber-200 rounded-2xl p-4 shadow-sm">
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2 pb-2 border-b border-slate-100 text-amber-800">
+                        <i data-lucide="shield-alert" class="w-4 h-4 text-amber-600"></i>
+                        【最高重要】SILK 術後 & 醫療用品
+                    </h4>
+                    <div class="divide-y divide-slate-100" id="list-medical">
+                        <!-- Checkboxes will be populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Section: Clothes -->
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2 pb-2 border-b border-slate-100 text-thai-emerald">
+                        <i data-lucide="shirt" class="w-4 h-4 text-thai-emerald"></i>
+                        隨身衣物 (6/17可大洗烘)
+                    </h4>
+                    <div class="divide-y divide-slate-100" id="list-clothes"></div>
+                </div>
+
+                <!-- Section: Liquid (Strict 100ml) -->
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2 pb-2 border-b border-slate-100 text-blue-600">
+                        <i data-lucide="droplet" class="w-4 h-4 text-blue-600"></i>
+                        液體類 (單瓶不超 100ml / 裝夾鏈袋)
+                    </h4>
+                    <div class="divide-y divide-slate-100" id="list-liquids"></div>
+                </div>
+
+                <!-- Section: Electronics & Misc -->
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-2 pb-2 border-b border-slate-100 text-purple-600">
+                        <i data-lucide="smartphone" class="w-4 h-4 text-purple-600"></i>
+                        電子產品與雜物
+                    </h4>
+                    <div class="divide-y divide-slate-100" id="list-misc"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Tab 4: Health and Eye-Care Guide -->
+        <div id="tab-health" class="tab-content space-y-4">
+            
+            <!-- Eye Care Card -->
+            <div class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-300 rounded-2xl p-5 space-y-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="bg-amber-500 text-white p-2 rounded-xl">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-amber-900">SILK 術後 3 大黃金防線</h3>
+                        <p class="text-[10px] text-amber-700 font-bold uppercase tracking-wider">老公的靈魂之窗守護守則</p>
+                    </div>
+                </div>
+                <div class="space-y-2.5 text-xs text-amber-800 leading-relaxed pt-2">
+                    <div class="flex gap-2">
+                        <span class="bg-amber-600 text-white w-5 h-5 rounded-full flex items-center justify-center font-bold shrink-0">1</span>
+                        <p><strong>避開風沙：</strong> 曼谷在乘渡輪、高空酒吧時風力極強。<strong>老公須全程配戴貼合防風的護目鏡或墨鏡</strong>，阻擋任何微粒飛入眼睛。</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="bg-amber-600 text-white w-5 h-5 rounded-full flex items-center justify-center font-bold shrink-0">2</span>
+                        <p><strong>防範污水：</strong> 昭披耶河的水質較多菌。<strong>坐船時不靠在船舷側，防止河水飛濺</strong>；淋浴、洗臉時絕對不可讓生水跑入眼睛（洗臉可用煮沸水或用擦拭法）。</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <span class="bg-amber-600 text-white w-5 h-5 rounded-full flex items-center justify-center font-bold shrink-0">3</span>
+                        <p><strong>杜絕重油煙：</strong> 傳統夜市（如喬德夜市等）人流大、排氣差、充斥著炭火油煙。故本行程<strong>將戶外夜市行程全數改為高檔百貨、乾淨餐廳</strong>，安全防感染。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Protein Guide Card -->
+            <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                <h3 class="font-bold text-slate-900 flex items-center gap-2 text-thai-emerald">
+                    <i data-lucide="beef" class="w-5 h-5"></i>
+                    高蛋白健康外食點餐攻略
+                </h3>
+                <p class="text-xs text-slate-500">
+                    6/25 健檢，雖然還有多天緩衝，但曼谷美食重鹹、重油。跟著這樣點，餐餐高蛋白又吃得健康：
+                </p>
+                <div class="space-y-2 pt-2">
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-thai-protein"></span>
+                            泰式米粉湯 / 船麵 (如 榮泰)
+                        </h4>
+                        <p class="text-[11px] text-slate-600 mt-1">點大碗，請老闆「<strong>加肉片、加手工魚丸，米粉減半</strong>」，不點油炸豬皮，湯頭淺嚐幾口即可。</p>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-thai-protein"></span>
+                            高檔泰菜餐廳 (如 Savoey, Nara)
+                        </h4>
+                        <p class="text-[11px] text-slate-600 mt-1">必點：<strong>清蒸檸檬魚（蛋白質之王）</strong>、蒜蓉泰國大蝦、烤嫩松阪豬。避開綠咖哩（高椰奶椰漿椰糖）及油炸蝦餅。</p>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                        <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-thai-protein"></span>
+                            沙拉能量碗 (如 Pimp My Salad)
+                        </h4>
+                        <p class="text-[11px] text-slate-600 mt-1">基底選擇羽衣甘藍或生菜。蛋白質主食選<strong>舒肥雞胸、嫩煎鮭魚或烤牛排</strong>。醬料要求「放在旁邊（Sauce on side）」，自己儲蓄控制。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Toast -->
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 text-xs text-blue-800 flex gap-2">
+                <i data-lucide="info" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
+                <p>
+                    <strong>健檢小叮嚀：</strong> 6/20 回台後，有整整 5 天。多喝水代謝鈉含量、規律作息、清淡飲食，6/25 的健檢大軍絕對安心過關！
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Tab 5: AI Travel Assistant Hub (NEW!) -->
+        <div id="tab-ai" class="tab-content space-y-4">
+            
+            <!-- API Key 安全設定面板 -->
+            <div id="api-key-config-card" class="bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/60 rounded-2xl p-4 space-y-3 transition-all duration-300">
+                <div class="flex items-start gap-2.5">
+                    <div class="bg-amber-500 text-white p-2 rounded-xl shrink-0">
+                        <i data-lucide="key" class="w-5 h-5"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-amber-900 text-sm">設定您的 Gemini API 金鑰</h4>
+                        <p class="text-[10px] text-amber-700 leading-relaxed mt-0.5">
+                            本網頁部署在 GitHub 平台時需要提供個人金鑰。金鑰將<strong>僅儲存在您的瀏覽器中 (LocalStorage)</strong>，絕不會上傳或外洩，安全無虞。
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex gap-2">
+                        <input type="password" id="input-api-key" placeholder="輸入 AI Studio 申請的 AIzaSy..." class="flex-1 text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-amber-500 bg-white">
+                        <button onclick="saveApiKey()" id="btn-save-key" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shrink-0">
+                            儲存金鑰
+                        </button>
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] text-slate-400">
+                        <a href="https://aistudio.google.com/" target="_blank" class="text-amber-700 hover:underline flex items-center gap-0.5">
+                            <i data-lucide="external-link" class="w-3 h-3"></i> 前往 Google AI Studio 免費申請金鑰
+                        </a>
+                        <button onclick="clearApiKey()" id="btn-clear-key" class="hidden text-red-600 hover:underline font-bold">
+                            清除已存金鑰
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-thai-emerald to-slate-900 text-white p-4 rounded-2xl shadow-md space-y-1">
+                <span class="text-[10px] text-thai-gold font-bold tracking-widest uppercase">Gemini AI Engine</span>
+                <h3 class="font-bold text-base flex items-center gap-2">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-thai-gold"></i>
+                    曼谷隨身 AI 智慧導遊與護眼助手
+                </h3>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                    結合先進的 Gemini 語音合成、視覺分析與接地搜尋，隨時為您和老公把關高蛋白飲食與術後眼睛安全！
+                </p>
+            </div>
+
+            <!-- Mini AI Tab Buttons -->
+            <div class="grid grid-cols-3 gap-2 bg-slate-100 p-1.5 rounded-xl">
+                <button onclick="switchAiSubtab('ai-tts')" id="btn-sub-tts" class="sub-ai-btn text-center py-2 px-1 rounded-lg text-xs font-bold transition-all bg-white text-thai-emerald shadow-sm">
+                    🔮 護眼翻譯
+                </button>
+                <button onclick="switchAiSubtab('ai-vision')" id="btn-sub-vision" class="sub-ai-btn text-center py-2 px-1 rounded-lg text-xs font-bold transition-all text-slate-600">
+                    📸 菜單健檢
+                </button>
+                <button onclick="switchAiSubtab('ai-chat')" id="btn-sub-chat" class="sub-ai-btn text-center py-2 px-1 rounded-lg text-xs font-bold transition-all text-slate-600">
+                    💬 避雷導遊
+                </button>
+            </div>
+
+            <!-- Subtab 1: AI TTS Translator -->
+            <div id="ai-tts" class="sub-ai-pane space-y-3">
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                    <h4 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                        <i data-lucide="languages" class="w-4 h-4 text-thai-emerald"></i>
+                        術後常用護眼泰文一鍵播音
+                    </h4>
+                    <p class="text-xs text-slate-400">點擊以下按鈕，AI 會用標準泰語朗讀，讓您與當地店員快速溝通：</p>
+                    
+                    <div class="grid grid-cols-1 gap-2">
+                        <button onclick="playPresetTts('按摩時請絕對避開我老公的額頭、眼睛周圍，不要施加壓力！')" class="text-left bg-amber-50 border border-amber-200 hover:border-amber-400 p-2.5 rounded-xl transition flex justify-between items-center text-xs text-amber-900 font-medium">
+                            <span class="flex-1">💆‍♂️ 按摩防線：避開額頭與眼睛</span>
+                            <i data-lucide="volume-2" class="w-4 h-4 text-amber-600 ml-2"></i>
+                        </button>
+                        <button onclick="playPresetTts('請不要在臉上灑水，洗臉時不要碰生水，防止感染。')" class="text-left bg-blue-50 border border-blue-200 hover:border-blue-400 p-2.5 rounded-xl transition flex justify-between items-center text-xs text-blue-900 font-medium">
+                            <span class="flex-1">🚿 潑水防線：請勿朝臉上噴水</span>
+                            <i data-lucide="volume-2" class="w-4 h-4 text-blue-600 ml-2"></i>
+                        </button>
+                        <button onclick="playPresetTts('這道菜請幫我們少鹽少油、不要炸的、高蛋白質主食。')" class="text-left bg-emerald-50 border border-emerald-200 hover:border-emerald-400 p-2.5 rounded-xl transition flex justify-between items-center text-xs text-emerald-900 font-medium">
+                            <span class="flex-1">🥩 飲食防線：少鹽油、要高蛋白</span>
+                            <i data-lucide="volume-2" class="w-4 h-4 text-emerald-600 ml-2"></i>
+                        </button>
+                    </div>
+
+                    <!-- Custom input translator -->
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <label class="text-xs font-bold text-slate-700">✍️ 輸入任意中文翻譯並用語音播放：</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="custom-translation-input" placeholder="例如：我想坐在靠室內吹冷氣擋風的位置..." class="flex-1 text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-thai-emerald">
+                            <button onclick="translateAndPlay()" class="bg-thai-emerald text-white text-xs font-bold px-4 py-2 rounded-xl flex items-center gap-1 hover:bg-emerald-900 transition shrink-0">
+                                <i data-lucide="mic" class="w-3.5 h-3.5"></i> 翻譯語音
+                            </button>
+                        </div>
+                        <div id="translation-result" class="hidden bg-slate-50 p-2.5 rounded-xl text-xs space-y-1">
+                            <p class="text-slate-400 text-[10px] uppercase font-bold">泰文翻譯</p>
+                            <p id="thai-translated-text" class="font-bold text-slate-800"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subtab 2: AI Vision OCR Menu Analysis -->
+            <div id="ai-vision" class="sub-ai-pane hidden space-y-3">
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3">
+                    <h4 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                        <i data-lucide="camera" class="w-4 h-4 text-thai-emerald"></i>
+                        AI 菜單食品健康與安全評估
+                    </h4>
+                    <p class="text-xs text-slate-400">
+                        在餐廳拍攝菜單、或是即將下肚的食物照片，AI 將會即時評估「蛋白質含量」與「術後眼部安全級別」！
+                    </p>
+
+                    <div class="flex flex-col items-center justify-center border-2 border-dashed border-slate-200 rounded-2xl p-4 bg-slate-50/50 relative cursor-pointer hover:bg-slate-50 transition" onclick="document.getElementById('vision-file-input').click()">
+                        <input type="file" id="vision-file-input" accept="image/*" class="hidden" onchange="previewVisionImage(event)">
+                        
+                        <div id="vision-upload-placeholder" class="text-center py-4 space-y-2">
+                            <i data-lucide="upload-cloud" class="w-8 h-8 text-slate-400 mx-auto"></i>
+                            <p class="text-xs font-bold text-slate-600">上傳或拍攝照片</p>
+                            <p class="text-[10px] text-slate-400">支援 PNG, JPG (不超過 5MB)</p>
+                        </div>
+
+                        <div id="vision-image-preview-container" class="hidden w-full relative">
+                            <img id="vision-image-preview" src="#" alt="Preview" class="w-full max-h-48 object-cover rounded-xl shadow-sm">
+                            <button onclick="resetVisionUpload(event)" class="absolute top-2 right-2 bg-slate-950/70 hover:bg-slate-900 text-white rounded-full p-1.5 transition">
+                                <i data-lucide="x" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="btn-run-vision-analysis" onclick="runVisionAnalysis()" class="w-full bg-thai-emerald hover:bg-emerald-900 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-1.5 disabled:opacity-50" disabled>
+                        <i data-lucide="sparkles" class="w-4 h-4 text-thai-gold"></i>
+                        評估高蛋白與術後安全性
+                    </button>
+
+                    <!-- Vision analysis results container -->
+                    <div id="vision-result-container" class="hidden bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-3">
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">餐飲安全評鑑報告</span>
+                            <span id="vision-safety-badge" class="text-xs font-black px-2.5 py-1 rounded-lg"></span>
+                        </div>
+                        <div id="vision-analysis-text" class="text-xs text-slate-700 leading-relaxed space-y-2">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subtab 3: Grounded Weather & Travel Guide Chat -->
+            <div id="ai-chat" class="sub-ai-pane hidden space-y-3">
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-3 flex flex-col min-h-[350px]">
+                    <div class="border-b border-slate-100 pb-2 flex justify-between items-center">
+                        <h4 class="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+                            <i data-lucide="message-square" class="w-4 h-4 text-thai-emerald"></i>
+                            避雷智慧伴遊 (已整合 Google Search)
+                        </h4>
+                        <span class="text-[9px] bg-sky-100 text-sky-800 font-bold px-2 py-0.5 rounded flex items-center gap-0.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span> Grounded
+                        </span>
+                    </div>
+
+                    <!-- Chat conversation timeline -->
+                    <div id="chat-messages" class="flex-1 space-y-3 overflow-y-auto max-h-[220px] text-xs pr-1">
+                        <!-- Default greeting from AI -->
+                        <div class="flex items-start gap-2 max-w-[85%]">
+                            <div class="bg-thai-emerald text-white p-1.5 rounded-xl shrink-0 mt-0.5">
+                                <i data-lucide="bot" class="w-4 h-4"></i>
+                            </div>
+                            <div class="bg-slate-100 text-slate-800 p-2.5 rounded-2xl">
+                                您好！我是您與老公的曼谷隨身 AI 伴遊。您可以向我詢問像是<b>「今天通羅區天氣如何、下雨機率」</b>或是<b>「通羅附近推薦乾淨有冷氣的泰式高蛋白午餐嗎？」</b>，我會聯網搜尋最新數據為您解答！
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grounding suggestions -->
+                    <div id="chat-suggestions" class="flex flex-wrap gap-1.5">
+                        <button onclick="sendPresetChat('通羅捷運站附近，推薦有冷氣的室內高蛋白餐廳嗎？')" class="text-[10px] bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-600 px-2 py-1 rounded-full transition">
+                            🥗 通羅室內高蛋白餐廳
+                        </button>
+                        <button onclick="sendPresetChat('今天曼谷的天氣預報與降雨機率，適合安排戶外行程嗎？')" class="text-[10px] bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-600 px-2 py-1 rounded-full transition">
+                            🌦️ 曼谷今天天氣預報
+                        </button>
+                    </div>
+
+                    <!-- Chat input block -->
+                    <div class="flex gap-2 border-t border-slate-100 pt-3">
+                        <input type="text" id="chat-user-input" placeholder="向伴遊發問..." onkeydown="if(event.key === 'Enter') sendUserChat()" class="flex-1 text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-thai-emerald">
+                        <button onclick="sendUserChat()" class="bg-thai-emerald text-white px-3.5 rounded-xl hover:bg-emerald-950 transition flex items-center justify-center shrink-0">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Responsive with 5 Items) -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/95 border-t border-slate-100 backdrop-blur-md grid grid-cols-5 py-2 z-50 rounded-t-2xl shadow-xl">
+        <button onclick="switchTab('overview')" class="nav-tab-btn flex flex-col items-center gap-1 text-thai-emerald" id="nav-overview">
+            <i data-lucide="home" class="w-4.5 h-4.5"></i>
+            <span class="text-[9px] font-bold">行前總覽</span>
+        </button>
+        <button onclick="switchTab('itinerary')" class="nav-tab-btn flex flex-col items-center gap-1 text-slate-400" id="nav-itinerary">
+            <i data-lucide="calendar" class="w-4.5 h-4.5"></i>
+            <span class="text-[9px] font-bold">每日行程</span>
+        </button>
+        <button onclick="switchTab('packing')" class="nav-tab-btn flex flex-col items-center gap-1 text-slate-400" id="nav-packing">
+            <i data-lucide="backpack" class="w-4.5 h-4.5"></i>
+            <span class="text-[9px] font-bold">7KG 打包</span>
+        </button>
+        <button onclick="switchTab('health')" class="nav-tab-btn flex flex-col items-center gap-1 text-slate-400" id="nav-health">
+            <i data-lucide="heart" class="w-4.5 h-4.5"></i>
+            <span class="text-[9px] font-bold">護眼健康</span>
+        </button>
+        <button onclick="switchTab('ai')" class="nav-tab-btn flex flex-col items-center gap-1 text-slate-400" id="nav-ai">
+            <i data-lucide="sparkles" class="w-4.5 h-4.5"></i>
+            <span class="text-[9px] font-bold">AI 智慧助手</span>
+        </button>
+    </nav>
+
+    <!-- Custom Toast Alert for Interactivity -->
+    <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs px-4 py-2 rounded-full shadow-lg z-50 opacity-0 transition-opacity pointer-events-none"></div>
+
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Target Trip Date: June 14, 2026
+        const targetDate = new Date('June 14, 2026 15:25:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerText = "旅程已經開始！✈️";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('countdown').innerText = `${days} 天 ${hours} 小時 ${minutes} 分`;
+        }
+
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+
+        // Tab Switcher
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Show active tab
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+
+            // Reset navigation active styles
+            document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+                btn.classList.remove('text-thai-emerald');
+                btn.classList.add('text-slate-400');
+            });
+            // Highlight current button
+            document.getElementById(`nav-${tabId}`).classList.add('text-thai-emerald');
+            document.getElementById(`nav-${tabId}`).classList.remove('text-slate-400');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Itinerary Day Switcher
+        function switchDay(dayNum) {
+            // Hide all day panes
+            document.querySelectorAll('.day-pane').forEach(pane => {
+                pane.classList.add('hidden');
+            });
+            // Show current day pane
+            document.getElementById(`day-content-${dayNum}`).classList.remove('hidden');
+
+            // Reset all day buttons
+            document.querySelectorAll('.day-btn').forEach(btn => {
+                btn.classList.remove('bg-thai-emerald', 'text-white', 'shadow-md', 'shadow-emerald-900/10');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            // Highlight current day button
+            const activeBtn = document.getElementById(`btn-day-${dayNum}`);
+            activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+            activeBtn.classList.add('bg-thai-emerald', 'text-white', 'shadow-md', 'shadow-emerald-900/10');
+        }
+
+        // Show toast notifications
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 1500);
+        }
+
+        // --- Interactive Packing Checklist System ---
+        const packingData = {
+            medical: [
+                { id: 'p1', name: '老公醫療用防風護目鏡 / 防強風太陽眼鏡', remark: '乘船、高空酒吧防塵風沙必配' },
+                { id: 'p2', name: '單支裝人工淚液 (不含防腐劑) x2 盒', remark: '冷氣房大太陽保持眼睛濕潤' },
+                { id: 'p3', name: '攜帶型乾洗手 / 酒精消毒棉片', remark: '點眼藥水前徹底清潔雙手' },
+                { id: 'p4', name: '健保卡、身分證 (回台健檢與備用)', remark: '健檢日期 6/25' },
+                { id: 'p5', name: '個人慣用牙刷 & 牙膏（小於100ml）', remark: '泰國減塑政策，飯店不主動提供一次性盥洗用品' }
+            ],
+            clothes: [
+                { id: 'p6', name: '短袖衣服 / 背心 x 3-4 件', remark: '6/17 自助大洗烘' },
+                { id: 'p7', name: '短褲 / 短裙 x 2-3 件', remark: '涼爽好走' },
+                { id: 'p8', name: '貼身內衣褲 x 4 套', remark: '可攜帶舊的，穿完即丟省重量' },
+                { id: 'p9', name: '襪子 x 3 雙', remark: '維持雙腳乾爽' },
+                { id: 'p10', name: '【男生有領襯衫/Polo衫 + 長褲 + 休閒鞋】', remark: '郵輪晚宴 Smart Casual 著裝限制' },
+                { id: 'p11', name: '【女生過膝洋裝 / 薄披肩】', remark: '參觀臥佛寺過膝且不可露肩' }
+            ],
+            liquids: [
+                { id: 'p12', name: '高係數防曬乳 (單瓶不超 100ml)', remark: '泰國烈日強烈' },
+                { id: 'p13', name: '個人保養試用包 (用完即丟)', remark: '最輕打包不佔重量' },
+                { id: 'p14', name: '20 x 20cm 透明一公升夾鏈袋', remark: '登機過安檢液體需統一展示' }
+            ],
+            misc: [
+                { id: 'p15', name: '行動電源 (不超過 20000mAh，需標示清晰)', remark: '手提隨身登機，絕不可托運' },
+                { id: 'p16', name: '極輕折疊傘 (遮陽與防午後大雨)', remark: '泰國多雨防曬必備' },
+                { id: 'p17', name: '空保溫杯 / 水瓶', remark: '過安檢後裝水上飛機喝' },
+                { id: 'p18', name: '環保購物袋', remark: '泰國便利商店不提供塑膠袋' }
+            ]
+        };
+
+        // Render checklist UI
+        function renderChecklist() {
+            const savedState = JSON.parse(localStorage.getItem('bkk_packing_checklist')) || {};
+
+            const categories = ['medical', 'clothes', 'liquids', 'misc'];
+            categories.forEach(cat => {
+                const container = document.getElementById(`list-${cat}`);
+                container.innerHTML = '';
+
+                packingData[cat].forEach(item => {
+                    const isChecked = savedState[item.id] ? 'checked' : '';
+                    const strikeClass = savedState[item.id] ? 'line-through text-slate-400' : 'text-slate-800';
+
+                    const itemHTML = `
+                        <div class="flex items-start gap-3 py-3" onclick="toggleItem('${item.id}', '${cat}')">
+                            <input type="checkbox" id="${item.id}" ${isChecked} class="mt-1 h-4.5 w-4.5 rounded border-slate-300 text-thai-emerald focus:ring-thai-emerald shrink-0" onclick="event.stopPropagation(); toggleItem('${item.id}', '${cat}')">
+                            <div class="flex-1">
+                                <label for="${item.id}" class="text-xs font-bold ${strikeClass} select-none transition-colors duration-150">${item.name}</label>
+                                <p class="text-[10px] text-slate-400 select-none">${item.remark}</p>
+                            </div>
+                        </div>
+                    `;
+                    container.insertAdjacentHTML('beforeend', itemHTML);
+                });
+            });
+        }
+
+        // Toggle item status & save to localstorage
+        function toggleItem(id, cat) {
+            const savedState = JSON.parse(localStorage.getItem('bkk_packing_checklist')) || {};
+            const checkbox = document.getElementById(id);
+            
+            // Toggle state
+            if (savedState[id]) {
+                delete savedState[id];
+                checkbox.checked = false;
+                showToast("取消勾選 🔓");
+            } else {
+                savedState[id] = true;
+                checkbox.checked = true;
+                showToast("已打包放入行李箱！🎒");
+            }
+
+            localStorage.setItem('bkk_packing_checklist', JSON.stringify(savedState));
+            renderChecklist(); // Re-render to apply line-through styles
+        }
+
+        // Initial rendering of checklist
+        renderChecklist();
+
+        // ==========================================
+        //         GEMINI API INTEGRATION LOGIC
+        // ==========================================
+
+        // 取得儲存在瀏覽器本地的 API Key
+        function getApiKey() {
+            return localStorage.getItem('bkk_gemini_api_key') || "";
+        }
+
+        // 儲存金鑰至 LocalStorage
+        function saveApiKey() {
+            const keyInput = document.getElementById('input-api-key').value.trim();
+            if (!keyInput) {
+                showToast("請輸入有效的 API 金鑰！🔑");
+                return;
+            }
+            localStorage.setItem('bkk_gemini_api_key', keyInput);
+            updateApiKeyUi();
+            showToast("金鑰已安全儲存於您的瀏覽器！🎉");
+        }
+
+        // 清除金鑰
+        function clearApiKey() {
+            localStorage.removeItem('bkk_gemini_api_key');
+            document.getElementById('input-api-key').value = "";
+            updateApiKeyUi();
+            showToast("金鑰已成功清除！🗑️");
+        }
+
+        // 更新金鑰設定介面
+        function updateApiKeyUi() {
+            const savedKey = getApiKey();
+            const input = document.getElementById('input-api-key');
+            const saveBtn = document.getElementById('btn-save-key');
+            const clearBtn = document.getElementById('btn-clear-key');
+            const card = document.getElementById('api-key-config-card');
+
+            if (savedKey) {
+                input.value = "••••••••••••••••••••••••••••";
+                input.disabled = true;
+                saveBtn.disabled = true;
+                saveBtn.className = "bg-slate-300 text-slate-500 text-xs font-bold px-4 py-2 rounded-xl shrink-0 cursor-not-allowed";
+                clearBtn.classList.remove('hidden');
+                
+                // 變更為已完成狀態的冷色系
+                card.className = "bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-3 transition-all duration-300";
+            } else {
+                input.value = "";
+                input.disabled = false;
+                saveBtn.disabled = false;
+                saveBtn.className = "bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shrink-0";
+                clearBtn.classList.add('hidden');
+                
+                // 變更回警示狀態的暖色系
+                card.className = "bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/60 rounded-2xl p-4 space-y-3 transition-all duration-300";
+            }
+        }
+
+        // 初始化時執行 UI 狀態更新
+        updateApiKeyUi();
+
+        // Robust fetch wrapper with exponential backoff for reliability
+        async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    throw new Error(`HTTP Error Status: ${response.status}`);
+                }
+                return response;
+            } catch (error) {
+                if (retries > 0) {
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                } else {
+                    throw error;
+                }
+            }
+        }
+
+        // Switch AI Subtabs
+        function switchAiSubtab(subtabId) {
+            document.querySelectorAll('.sub-ai-pane').forEach(pane => {
+                pane.classList.add('hidden');
+            });
+            document.getElementById(subtabId).classList.remove('hidden');
+
+            document.querySelectorAll('.sub-ai-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-thai-emerald', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            // Active button highlight
+            let actBtnId = "btn-sub-tts";
+            if (subtabId === "ai-vision") actBtnId = "btn-sub-vision";
+            if (subtabId === "ai-chat") actBtnId = "btn-sub-chat";
+            document.getElementById(actBtnId).classList.add('bg-white', 'text-thai-emerald', 'shadow-sm');
+            document.getElementById(actBtnId).classList.remove('text-slate-600');
+        }
+
+        // base64 to Array Buffer converter
+        function base64ToArrayBuffer(base64) {
+            const binaryString = atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        // WAV writer for PCM 16-bit audio
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        function pcmToWav(pcm16, sampleRate) {
+            const buffer = new ArrayBuffer(44 + pcm16.length * 2);
+            const view = new DataView(buffer);
+
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + pcm16.length * 2, true);
+            writeString(view, 8, 'WAVE');
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true); // Linear PCM
+            view.setUint16(22, 1, true); // Monophonic
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * 2, true); // byte rate
+            view.setUint16(32, 2, true); // block align
+            view.setUint16(34, 16, true); // bits per sample
+            writeString(view, 36, 'data');
+            view.setUint32(40, pcm16.length * 2, true);
+
+            for (let i = 0; i < pcm16.length; i++) {
+                view.setInt16(44 + i * 2, pcm16[i], true);
+            }
+
+            return new Blob([buffer], { type: 'audio/wav' });
+        }
+
+        // ==========================================
+        //             FEATURE 1: TTS TRANSLATOR
+        // ==========================================
+
+        let audioContext = null;
+
+        async function playPresetTts(presetChineseText) {
+            showToast("Gemini 正在合成泰語語音... 🗣️");
+            await runTts(presetChineseText);
+        }
+
+        async function translateAndPlay() {
+            const inputVal = document.getElementById('custom-translation-input').value.trim();
+            if (!inputVal) {
+                showToast("請輸入欲翻譯的中文文字！");
+                return;
+            }
+            showToast("正在進行 AI 泰語翻譯與語音合成... 🗣️");
+            await runTts(inputVal, true);
+        }
+
+        async function runTts(textPrompt, updateUi = false) {
+            const apiKey = getApiKey();
+            if (!apiKey) {
+                showToast("請先在上方設定您的 API 金鑰！🔑");
+                switchTab('ai');
+                document.getElementById('api-key-config-card').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+            
+            const translationResultDiv = document.getElementById('translation-result');
+            const translationResultText = document.getElementById('thai-translated-text');
+
+            try {
+                // Step 1: Request Gemini to translate and speak the sentence in Thai
+                const userQuery = `把以下句子翻譯為溫柔、有禮貌、適合在泰國店家使用的泰語，並為語音輸出做準備。只需朗讀翻譯出來的純泰文句子：\n"${textPrompt}"`;
+                
+                const payload = {
+                    contents: [{
+                        parts: [{ text: userQuery }]
+                    }],
+                    generationConfig: {
+                        responseModalities: ["AUDIO"],
+                        speechConfig: {
+                            voiceConfig: {
+                                prebuiltVoiceConfig: { voiceName: "Puck" } // Upbeat voice
+                            }
+                        }
+                    }
+                };
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`;
+                
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const part = result?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType;
+
+                if (audioData && mimeType && mimeType.startsWith("audio/")) {
+                    // Extract sample rate from MIME or fallback to 24000
+                    let sampleRate = 24000;
+                    const rateMatch = mimeType.match(/rate=(\d+)/);
+                    if (rateMatch && rateMatch[1]) {
+                        sampleRate = parseInt(rateMatch[1], 10);
+                    }
+
+                    // Convert base64 L16 PCM to WAV
+                    const pcmBuffer = base64ToArrayBuffer(audioData);
+                    const pcm16 = new Int16Array(pcmBuffer);
+                    const wavBlob = pcmToWav(pcm16, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+
+                    // Play WAV
+                    const audio = new Audio(audioUrl);
+                    await audio.play();
+
+                    // Optional: Get text translation using simple quick run to display on UI
+                    if (updateUi) {
+                        const translationResponse = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                contents: [{ parts: [{ text: `將此句中文翻譯為有禮貌的泰語。僅輸出翻譯後的純泰文字（不含發音註記、不含中文解釋）："${textPrompt}"` }] }]
+                            })
+                        });
+                        const transData = await translationResponse.json();
+                        const thaiText = transData?.candidates?.[0]?.content?.parts?.[0]?.text || "翻譯失敗";
+                        
+                        translationResultDiv.classList.remove('hidden');
+                        translationResultText.innerText = thaiText;
+                    }
+                    showToast("播放泰語成功！🔊");
+                } else {
+                    showToast("語音生成失敗，請稍後再試。");
+                }
+
+            } catch (err) {
+                console.error(err);
+                showToast("AI 語音連線異常！");
+            }
+        }
+
+        // ==========================================
+        //             FEATURE 2: VISION ANALYSIS
+        // ==========================================
+
+        let base64ImageGlobal = null;
+
+        function previewVisionImage(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('vision-upload-placeholder').classList.add('hidden');
+                document.getElementById('vision-image-preview-container').classList.remove('hidden');
+                document.getElementById('vision-image-preview').src = e.target.result;
+                
+                // Keep base64 ready
+                base64ImageGlobal = e.target.result.split(',')[1];
+                document.getElementById('btn-run-vision-analysis').removeAttribute('disabled');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function resetVisionUpload(event) {
+            event.stopPropagation();
+            document.getElementById('vision-upload-placeholder').classList.remove('hidden');
+            document.getElementById('vision-image-preview-container').classList.add('hidden');
+            document.getElementById('vision-image-preview').src = "#";
+            document.getElementById('vision-file-input').value = "";
+            base64ImageGlobal = null;
+            document.getElementById('btn-run-vision-analysis').setAttribute('disabled', 'true');
+            document.getElementById('vision-result-container').classList.add('hidden');
+        }
+
+        async function runVisionAnalysis() {
+            const apiKey = getApiKey();
+            if (!apiKey) {
+                showToast("請先在上方設定您的 API 金鑰！🔑");
+                switchTab('ai');
+                document.getElementById('api-key-config-card').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+            
+            if (!base64ImageGlobal) return;
+
+            showToast("正在分析菜單與食物健康度... 📸");
+            const btn = document.getElementById('btn-run-vision-analysis');
+            btn.setAttribute('disabled', 'true');
+            btn.innerHTML = `<span class="animate-spin mr-1 border-2 border-white border-t-transparent rounded-full w-4.5 h-4.5"></span> 正在研判中...`;
+
+            try {
+                const promptText = `
+                你是一位精通泰國飲食的健康營養師與眼科術後照護專家。
+                使用者提供了一張泰國食物照片或餐廳菜單照片。請你針對以下三大維度進行嚴格且親切的繁體中文評估：
+                1. 蛋白質含量級別（高/中/低，回台健檢考量）
+                2. SILK近視雷射術後一週安全性級別（安全/中等風險/高風險）。安全性特別著重於：是否有重度油煙、辣椒刺激、高溫蒸汽直接衝擊眼部，或是需要配戴護目鏡防生水、風沙的細節。
+                3. 給予本餐點/菜單的總體推薦燈號（綠燈/黃燈/紅燈）。
+                
+                請嚴格用以下格式輸出 JSON 以便渲染：
+                {
+                  "grade": "綠燈" / "黃燈" / "紅燈",
+                  "protein_assessment": "...",
+                  "eye_safety_assessment": "...",
+                  "diet_advice": "..."
+                }
+                請僅輸出此 JSON，不要附加任何 Markdown 格式框線或說明。
+                `;
+
+                const payload = {
+                    contents: [{
+                        role: "user",
+                        parts: [
+                            { text: promptText },
+                            {
+                                inlineData: {
+                                    mimeType: "image/png",
+                                    data: base64ImageGlobal
+                                }
+                            }
+                        ]
+                    }],
+                    generationConfig: {
+                        responseMimeType: "application/json"
+                    }
+                };
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+                
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const textResult = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (textResult) {
+                    const parsed = JSON.parse(textResult);
+                    
+                    // Show result box
+                    const container = document.getElementById('vision-result-container');
+                    const badge = document.getElementById('vision-safety-badge');
+                    const textDiv = document.getElementById('vision-analysis-text');
+
+                    container.classList.remove('hidden');
+                    
+                    // Style badge
+                    badge.innerText = parsed.grade;
+                    if (parsed.grade.includes("綠燈")) {
+                        badge.className = "text-xs font-black px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800";
+                    } else if (parsed.grade.includes("黃燈")) {
+                        badge.className = "text-xs font-black px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800";
+                    } else {
+                        badge.className = "text-xs font-black px-2.5 py-1 rounded-lg bg-red-100 text-red-800";
+                    }
+
+                    textDiv.innerHTML = `
+                        <p class="mb-2"><strong>💪 蛋白質含量研判：</strong><br>${parsed.protein_assessment}</p>
+                        <p class="mb-2"><strong>👁️ 護眼防線與防風沙：</strong><br>${parsed.eye_safety_assessment}</p>
+                        <p class="mb-4"><strong>🥗 實用外食點餐與調整建議：</strong><br>${parsed.diet_advice}</p>
+                    `;
+                    showToast("分析完成！🥗");
+                } else {
+                    showToast("未獲得有效研判結果。");
+                }
+
+            } catch (err) {
+                console.error(err);
+                showToast("AI 研判異常！");
+            } finally {
+                btn.removeAttribute('disabled');
+                btn.innerHTML = `<i data-lucide="sparkles" class="w-4 h-4 text-thai-gold"></i> 評估高蛋白與術後安全性`;
+                lucide.createIcons();
+            }
+        }
+
+        // ==========================================
+        //             FEATURE 3: GROUNDED CHAT
+        // ==========================================
+
+        async function sendPresetChat(text) {
+            document.getElementById('chat-user-input').value = text;
+            await sendUserChat();
+        }
+
+        async function sendUserChat() {
+            const apiKey = getApiKey();
+            if (!apiKey) {
+                showToast("請先在上方設定您的 API 金鑰！🔑");
+                switchTab('ai');
+                document.getElementById('api-key-config-card').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            const inputField = document.getElementById('chat-user-input');
+            const messageText = inputField.value.trim();
+            if (!messageText) return;
+
+            // Display user message
+            appendChatMessage("user", messageText);
+            inputField.value = "";
+            document.getElementById('chat-suggestions').classList.add('hidden');
+
+            // Show loading bubble
+            const loadingId = appendChatMessage("bot-loading", "");
+
+            try {
+                const systemPrompt = `
+                你是一位專門隨行於泰國曼谷的頂級中文智慧伴遊與健康助理。
+                使用者的老公在 6/14 前一週剛剛做完 SILK 近視雷射手術（嚴防風沙、河水、重油煙、高風速直接吹眼）。
+                使用者們 6/25 將進行全身健康檢查（高蛋白、少油、少鈉、少精緻糖）。
+                你的主要任務是利用 Google 搜尋聯網提供最新的曼谷天氣、景點即時狀況、乾淨有冷氣的室內高蛋白餐廳評分推薦。
+                回答時請精確、切中要害、溫暖關懷，且全程保持繁體中文。若搜尋提供引用來源，請以可點擊標題網址形式在文末優雅呈現。
+                `;
+
+                const payload = {
+                    contents: [{
+                        role: "user",
+                        parts: [{ text: messageText }]
+                    }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    }
+                };
+
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+                
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                
+                // Remove loading bubble
+                document.getElementById(loadingId).remove();
+
+                const candidate = result?.candidates?.[0];
+                const replyText = candidate?.content?.parts?.[0]?.text;
+
+                if (replyText) {
+                    // Extract search grounding metadata
+                    let sourcesHtml = "";
+                    const attributions = candidate?.groundingMetadata?.groundingAttributions;
+                    if (attributions && attributions.length > 0) {
+                        const validSources = attributions
+                            .map(attr => ({ uri: attr.web?.uri, title: attr.web?.title }))
+                            .filter(src => src.uri && src.title);
+                        
+                        if (validSources.length > 0) {
+                            sourcesHtml = `<div class="mt-2 pt-2 border-t border-slate-200/60 text-[10px] text-sky-700">
+                                <p class="font-bold mb-1">🔍 資訊接地來源：</p>
+                                <div class="space-y-1">`;
+                            validSources.slice(0, 3).forEach(src => {
+                                sourcesHtml += `<a href="${src.uri}" target="_blank" class="block truncate hover:underline">🔗 ${src.title}</a>`;
+                            });
+                            sourcesHtml += `</div></div>`;
+                        }
+                    }
+
+                    // Render bot reply
+                    appendChatMessage("bot", replyText, sourcesHtml);
+                } else {
+                    appendChatMessage("bot", "抱歉，伴遊小助手目前連線稍微擁擠，請再試一次！");
+                }
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById(loadingId).remove();
+                appendChatMessage("bot", "連線失敗，請檢查網路連接後再問我一次。");
+            }
+        }
+
+        function appendChatMessage(sender, text, extraHtml = "") {
+            const chatContainer = document.getElementById('chat-messages');
+            const messageId = "msg-" + Math.random().toString(36).substr(2, 9);
+
+            let bubbleHTML = "";
+            if (sender === "user") {
+                bubbleHTML = `
+                    <div class="flex items-start gap-2 justify-end pl-10">
+                        <div class="bg-indigo-600 text-white p-2.5 rounded-2xl">
+                            ${text}
+                        </div>
+                    </div>
+                `;
+            } else if (sender === "bot") {
+                bubbleHTML = `
+                    <div class="flex items-start gap-2 max-w-[85%] pr-4" id="${messageId}">
+                        <div class="bg-thai-emerald text-white p-1.5 rounded-xl shrink-0 mt-0.5">
+                            <i data-lucide="bot" class="w-4 h-4"></i>
+                        </div>
+                        <div class="bg-slate-100 text-slate-800 p-2.5 rounded-2xl leading-relaxed whitespace-pre-wrap">
+                            ${text}
+                            ${extraHtml}
+                        </div>
+                    </div>
+                `;
+            } else if (sender === "bot-loading") {
+                bubbleHTML = `
+                    <div class="flex items-start gap-2 max-w-[85%] pr-4" id="${messageId}">
+                        <div class="bg-thai-emerald text-white p-1.5 rounded-xl shrink-0 mt-0.5 animate-bounce">
+                            <i data-lucide="bot" class="w-4 h-4"></i>
+                        </div>
+                        <div class="bg-slate-100 text-slate-500 p-2.5 rounded-2xl flex items-center gap-1.5">
+                            <span class="animate-pulse">思考與網頁搜尋中</span>
+                            <span class="flex gap-1">
+                                <span class="bg-slate-400 w-1.5 h-1.5 rounded-full animate-bounce"></span>
+                                <span class="bg-slate-400 w-1.5 h-1.5 rounded-full animate-bounce delay-75"></span>
+                                <span class="bg-slate-400 w-1.5 h-1.5 rounded-full animate-bounce delay-150"></span>
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            chatContainer.insertAdjacentHTML('beforeend', bubbleHTML);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            lucide.createIcons();
+
+            return messageId;
+        }
+
+    </script>
+</body>
+</html>
