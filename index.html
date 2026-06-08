@@ -1232,7 +1232,16 @@
 
         // 取得儲存在瀏覽器本地的 API Key
         function getApiKey() {
-            return localStorage.getItem('bkk_gemini_api_key') || "";
+            // 優先讀取 LocalStorage（方便使用者隨時自行覆蓋）
+            const savedKey = localStorage.getItem('bkk_gemini_api_key');
+            if (savedKey) return savedKey;
+
+            // 讀取 CI/CD 注入的環境金鑰（若未注入則維持預設預埋佔位符）
+            const injectedKey = "__GEMINI_API_KEY__";
+            if (injectedKey && !injectedKey.startsWith("__")) {
+                return injectedKey;
+            }
+            return "";
         }
 
         // 儲存金鑰至 LocalStorage
@@ -1257,7 +1266,10 @@
 
         // 更新金鑰設定介面
         function updateApiKeyUi() {
-            const savedKey = getApiKey();
+            const savedKey = localStorage.getItem('bkk_gemini_api_key');
+            const injectedKey = "__GEMINI_API_KEY__";
+            const activeKey = getApiKey();
+            
             const input = document.getElementById('input-api-key');
             const saveBtn = document.getElementById('btn-save-key');
             const clearBtn = document.getElementById('btn-clear-key');
@@ -1269,8 +1281,14 @@
                 saveBtn.disabled = true;
                 saveBtn.className = "bg-slate-300 text-slate-500 text-xs font-bold px-4 py-2 rounded-xl shrink-0 cursor-not-allowed";
                 clearBtn.classList.remove('hidden');
-                
-                // 變更為已完成狀態的冷色系
+                card.className = "bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-3 transition-all duration-300";
+            } else if (activeKey && !activeKey.startsWith("__")) {
+                // 偵測到 CI/CD 注入了金鑰
+                input.value = "••••已由 CI/CD 系統安全配置••••";
+                input.disabled = true;
+                saveBtn.disabled = true;
+                saveBtn.className = "bg-slate-300 text-slate-500 text-xs font-bold px-4 py-2 rounded-xl shrink-0 cursor-not-allowed";
+                clearBtn.classList.add('hidden');
                 card.className = "bg-slate-50 border border-slate-200/80 rounded-2xl p-4 space-y-3 transition-all duration-300";
             } else {
                 input.value = "";
@@ -1278,14 +1296,29 @@
                 saveBtn.disabled = false;
                 saveBtn.className = "bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shrink-0";
                 clearBtn.classList.add('hidden');
-                
-                // 變更回警示狀態的暖色系
                 card.className = "bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200/60 rounded-2xl p-4 space-y-3 transition-all duration-300";
             }
         }
 
         // 初始化時執行 UI 狀態更新
         updateApiKeyUi();
+
+        // --- 天才級功能：從 URL 參數自動帶入金鑰並隱形擦除 ---
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlKey = urlParams.get('key');
+        if (urlKey && urlKey.trim().startsWith('AIzaSy')) {
+            localStorage.setItem('bkk_gemini_api_key', urlKey.trim());
+            
+            // 魔法步驟：立刻將網址列中的 ?key=... 擦除，還原成乾淨的網址
+            const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.replaceState({path: cleanUrl}, '', cleanUrl);
+            
+            // 更新 UI 與提示
+            updateApiKeyUi();
+            setTimeout(() => {
+                showToast("已透過專屬連結自動套用金鑰！🔑✨");
+            }, 1000);
+        }
 
         // Robust fetch wrapper with exponential backoff for reliability
         async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
