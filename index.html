@@ -863,7 +863,7 @@
                 </div>
                 <div class="space-y-2">
                     <div class="flex gap-2">
-                        <input type="password" id="input-api-key" placeholder="輸入 AI Studio 申請的 AIzaSy..." class="flex-1 text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-amber-500 bg-white">
+                        <input type="password" id="input-api-key" placeholder="輸入您的 Gemini API 金鑰 (例如 AQ... 或 AIzaSy...)" class="flex-1 text-xs px-3 py-2 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-amber-500 bg-white">
                         <button onclick="saveApiKey()" id="btn-save-key" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shrink-0">
                             儲存金鑰
                         </button>
@@ -1303,22 +1303,45 @@
         // 初始化時執行 UI 狀態更新
         updateApiKeyUi();
 
-        // --- 天才級功能：從 URL 參數自動帶入金鑰並隱形擦除 ---
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlKey = urlParams.get('key');
-        if (urlKey && urlKey.trim().startsWith('AIzaSy')) {
-            localStorage.setItem('bkk_gemini_api_key', urlKey.trim());
+        // --- 天才級功能：從 URL 參數自動帶入金鑰並隱形擦除 (支援 Query 與 Hash 且放寬測試字串) ---
+        function parseAndApplyUrlKey() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let urlKey = urlParams.get('key');
             
-            // 魔法步驟：立刻將網址列中的 ?key=... 擦除，還原成乾淨的網址
-            const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-            window.history.replaceState({path: cleanUrl}, '', cleanUrl);
-            
-            // 更新 UI 與提示
-            updateApiKeyUi();
-            setTimeout(() => {
-                showToast("已透過專屬連結自動套用金鑰！🔑✨");
-            }, 1000);
+            // 備案：如果 Query 沒有，檢查 Hash (例如: #key=...)
+            if (!urlKey && window.location.hash) {
+                const hashMatch = window.location.hash.match(/key=([^&]+)/);
+                if (hashMatch) {
+                    urlKey = hashMatch[1];
+                }
+            }
+
+            // 金鑰存在且長度大於 5 (方便用 test, abc12345 進行測試)
+            if (urlKey && urlKey.trim().length > 5) {
+                localStorage.setItem('bkk_gemini_api_key', urlKey.trim());
+                
+                // 魔法步驟：立刻將網址列中的金鑰參數隱形擦除，不著痕跡
+                let cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                
+                // 保留 key 以外的其他 query 參數（如果有的話）
+                urlParams.delete('key');
+                const remainingQuery = urlParams.toString();
+                if (remainingQuery) {
+                    cleanUrl += "?" + remainingQuery;
+                }
+                
+                window.history.replaceState({path: cleanUrl}, '', cleanUrl);
+                
+                // 重新渲染設定介面
+                updateApiKeyUi();
+                setTimeout(() => {
+                    showToast("已透過專屬連結自動套用金鑰！🔑✨");
+                }, 800);
+            }
         }
+
+        // 立即執行 URL 金鑰解析
+        parseAndApplyUrlKey();
 
         // Robust fetch wrapper with exponential backoff for reliability
         async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
